@@ -9,6 +9,11 @@
 * [Community](features/community.md)
 * [Music System](features/music-system.md)
 
+## 📒 Database
+
+* [Which Database is supported?](database/which-database-is-supported.md)
+* [H2 as a Server](database/h2-as-a-server.md)
+
 ## 🤖 Bot
 
 * [Self hosting](bot/self-hosting/README.md)
