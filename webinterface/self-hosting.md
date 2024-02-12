@@ -31,14 +31,17 @@ We will be using [Cloudflare Tunnels](https://developers.cloudflare.com/cloudfla
 
 ### Preperation
 
-Before we can start we will need to either download the Frontend part of the Webinterface or just fork the Repo!\
-We will be forking the Repo in our example.
+Before we can start we will need to either download the Frontend part of the Webinterface or just fork the Repo! In our example we will be forking the [official Repository](https://github.com/Ree6-Applications/Webinterface).
+
+
 
 ### Frontend
 
 First we will need to visit the [Netlify page](https://app.netlify.com/).\
 After creating a new account or login into your already existing account, we will be creating a new site!\
-Instead of creating a new one and uploading the files we will be setting it up using Github!\
+Instead of creating a new one and uploading the files we will be setting it up using Github!
+
+For this example, I created a new Github account called RealRoseDev, please do not fork any repository of that account.\
 
 
 For that we will need to go into the dashboard of Netlify and Press on `Import from Git`.

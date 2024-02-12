@@ -28,3 +28,7 @@
 ## 🌐 Webinterface
 
 * [Self hosting](webinterface/self-hosting.md)
+
+## ⁉ Troubleshooting
+
+* [Migration Failed!](troubleshooting/migration-failed.md)
