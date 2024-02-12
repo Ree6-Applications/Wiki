@@ -1,7 +1,5 @@
 # Migration Failed!
 
-
-
 ## Unsupported Database: MariaDB xx.x
 
 This error can happen if Flyway does not support your MariaDB version, but in most cases it's because Flyway is just a bit silly, or I messed something up :D!
