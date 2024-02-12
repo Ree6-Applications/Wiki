@@ -8,6 +8,10 @@ You can bypass this issue by running a script to generate the base schematic of 
 
 To run this script you can either use PhpMyAdmin to import this script, or access your mysql/mariadb server directly and run the script via that.
 
+<details>
+
+<summary>Base Schematic Script</summary>
+
 {% code title="ree6_struture-05-01-2024.sql" overflow="wrap" %}
 ```sql
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -430,3 +434,7 @@ COMMIT;
 
 ```
 {% endcode %}
+
+
+
+</details>
