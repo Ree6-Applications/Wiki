@@ -8,6 +8,8 @@ You can bypass this issue by running a script to generate the base schematic of 
 
 To run this script you can either use PhpMyAdmin to import this script, or access your mysql/mariadb server directly and run the script via that.
 
+After running this script, the error will still occur but the Bot will just be able to start up and work as intended.
+
 <details>
 
 <summary>Base Schematic Script</summary>
