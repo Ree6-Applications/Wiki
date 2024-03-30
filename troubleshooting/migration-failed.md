@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `Recording` (
   `guildId` bigint(20) DEFAULT NULL,
   `channelId` bigint(20) DEFAULT NULL,
   `creator` bigint(20) DEFAULT NULL,
-  `recording` text DEFAULT NULL,
+  `recording` longblob DEFAULT NULL,
   `participants` mediumblob DEFAULT NULL,
   `created` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
