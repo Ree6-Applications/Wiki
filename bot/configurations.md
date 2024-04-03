@@ -9,7 +9,7 @@ description: >-
 
 ## NOTE
 
-The current content is based on the unrelease Ree6 V3 version.
+The current content is based on the pre-release of Ree6 V3.
 
 ## Config file
 
