@@ -29,6 +29,6 @@
 
 * [Self hosting](webinterface/self-hosting.md)
 
-## ⁉ Troubleshooting
+## ⁉️ Troubleshooting
 
 * [Migration Failed!](troubleshooting/migration-failed.md)

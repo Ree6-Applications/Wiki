@@ -14,7 +14,7 @@ After running this script, the error will still occur but the Bot will just be a
 
 <summary>Base Schematic Script</summary>
 
-{% code title="ree6_struture-05-01-2024.sql" overflow="wrap" %}
+{% code title="ree6_struture-03-04-2024.sql" overflow="wrap" %}
 ```sql
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,22 +26,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 
-CREATE TABLE IF NOT EXISTS `AutoRoles` (
+CREATE TABLE `AutoRoles` (
   `guildId` bigint(20) NOT NULL,
-  `roleId` bigint(20) NOT NULL,
-  PRIMARY KEY (`guildId`,`roleId`)
+  `roleId` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `BirthdayWish` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `BirthdayWish` (
+  `id` int(11) NOT NULL,
   `guildId` bigint(20) DEFAULT NULL,
   `channelId` bigint(20) DEFAULT NULL,
   `userId` bigint(20) DEFAULT NULL,
-  `birthday` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `birthday` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `ChannelStats` (
+CREATE TABLE `ChannelStats` (
   `guildId` bigint(20) NOT NULL,
   `memberChannelId` varchar(255) DEFAULT NULL,
   `onlyRealMemberChannelId` varchar(255) DEFAULT NULL,
@@ -55,50 +53,44 @@ CREATE TABLE IF NOT EXISTS `ChannelStats` (
   `youtubeSubscribersChannelId` varchar(255) DEFAULT NULL,
   `youtubeSubscribersChannelUsername` varchar(255) DEFAULT NULL,
   `subredditMemberChannelId` varchar(255) DEFAULT NULL,
-  `subredditMemberChannelSubredditName` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`guildId`)
+  `subredditMemberChannelSubredditName` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `ChatLevelAutoRoles` (
+CREATE TABLE `ChatLevelAutoRoles` (
   `guildId` bigint(20) NOT NULL,
   `roleId` bigint(20) NOT NULL,
-  `lvl` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`guildId`,`roleId`)
+  `lvl` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `ChatProtector` (
+CREATE TABLE `ChatProtector` (
   `guildId` bigint(20) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`guildId`,`name`)
+  `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `CommandStats` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `CommandStats` (
+  `id` int(11) NOT NULL,
   `command` varchar(255) DEFAULT NULL,
-  `uses` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `uses` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `CustomCommands` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `CustomCommands` (
+  `id` bigint(20) NOT NULL,
   `guild` bigint(20) DEFAULT NULL,
   `command` varchar(255) DEFAULT NULL,
   `responseChannel` bigint(20) DEFAULT NULL,
   `responseMessage` varchar(255) DEFAULT NULL,
-  `responseEmbed` mediumblob DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `responseEmbed` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `CustomEvents` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `CustomEvents` (
+  `id` bigint(20) NOT NULL,
   `guild` bigint(20) DEFAULT NULL,
   `eventName` varchar(255) DEFAULT NULL,
   `eventTyp` varchar(255) DEFAULT NULL,
-  `actions` mediumblob DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `actions` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `flyway_schema_history` (
+CREATE TABLE `flyway_schema_history` (
   `installed_rank` int(11) NOT NULL,
   `version` varchar(50) DEFAULT NULL,
   `description` varchar(200) NOT NULL,
@@ -112,15 +104,16 @@ CREATE TABLE IF NOT EXISTS `flyway_schema_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `flyway_schema_history` (`installed_rank`, `version`, `description`, `type`, `script`, `checksum`, `installed_by`, `installed_on`, `execution_time`, `success`) VALUES
-(1, '1', 'Initial', 'SQL', 'V1__Initial.sql', 868184986, 'Ree6-SQL', '2023-10-24 11:45:10', 236, 1),
-(2, '2', 'Add Giveaway', 'SQL', 'V2__Add_Giveaway.sql', -1883877325, 'Ree6-SQL', '2023-10-24 11:45:10', 5, 1),
-(3, '3', 'DataTyp Update', 'SQL', 'V3__DataTyp_Update.sql', 903780844, 'Ree6-SQL', '2024-01-05 09:51:16', 8001, 1),
-(4, '4', 'FK Update', 'SQL', 'V4__FK_Update.sql', -787838562, 'Ree6-SQL', '2024-01-05 09:51:18', 2418, 1),
-(5, '5', 'Correcting Names', 'SQL', 'V5__Correcting_Names.sql', 1070891862, 'Ree6-SQL', '2024-01-05 09:51:19', 535, 1),
-(6, '6', 'Finishing FKs', 'SQL', 'V6__Finishing_FKs.sql', -1787610997, 'Ree6-SQL', '2024-01-05 09:51:20', 1901, 1),
-(7, '7', 'FixingFKs', 'SQL', 'V7__FixingFKs.sql', -1253861431, 'Ree6-SQL', '2024-01-05 09:54:07', 166697, 1);
+(1, '1', 'Initial', 'SQL', 'V1__Initial.sql', 868184986, 'Ree6-SQL', '2024-04-03 12:01:28', 2003, 1),
+(2, '2', 'Add Giveaway', 'SQL', 'V2__Add_Giveaway.sql', -1883877325, 'Ree6-SQL', '2024-04-03 12:01:28', 105, 1),
+(3, '3', 'DataTyp Update', 'SQL', 'V3__DataTyp_Update.sql', 903780844, 'Ree6-SQL', '2024-04-03 12:01:31', 1997, 1),
+(4, '4', 'FK Update', 'SQL', 'V4__FK_Update.sql', -787838562, 'Ree6-SQL', '2024-04-03 12:01:34', 3065, 1),
+(5, '5', 'Correcting Names', 'SQL', 'V5__Correcting_Names.sql', 1070891862, 'Ree6-SQL', '2024-04-03 12:01:35', 752, 1),
+(6, '6', 'Finishing FKs', 'SQL', 'V6__Finishing_FKs.sql', -1787610997, 'Ree6-SQL', '2024-04-03 12:01:37', 1349, 1),
+(7, '7', 'FixingFKs', 'SQL', 'V7__FixingFKs.sql', -1253861431, 'Ree6-SQL', '2024-04-03 12:01:39', 955, 1),
+(8, '8', 'Fix Recording', 'SQL', 'V8__Fix_Recording.sql', 111776244, 'Ree6-SQL', '2024-04-03 12:01:39', 113, 1);
 
-CREATE TABLE IF NOT EXISTS `Giveaway` (
+CREATE TABLE `Giveaway` (
   `messageId` bigint(20) NOT NULL,
   `creatorId` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
@@ -128,295 +121,437 @@ CREATE TABLE IF NOT EXISTS `Giveaway` (
   `prize` varchar(255) DEFAULT NULL,
   `winners` bigint(20) NOT NULL,
   `created` datetime DEFAULT NULL,
-  `ending` datetime DEFAULT NULL,
-  PRIMARY KEY (`messageId`)
+  `ending` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `GuildStats` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `GuildStats` (
+  `id` int(11) NOT NULL,
   `gid` bigint(20) DEFAULT NULL,
   `command` varchar(255) DEFAULT NULL,
-  `uses` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5346 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `uses` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `InstagramNotify` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `InstagramNotify` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `webhookId` bigint(20) NOT NULL,
   `token` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `message` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`guildId`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `message` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Invites` (
+CREATE TABLE `Invites` (
   `guildId` bigint(20) NOT NULL,
   `userId` bigint(20) DEFAULT NULL,
   `uses` bigint(20) DEFAULT NULL,
-  `code` varchar(255) NOT NULL,
-  PRIMARY KEY (`guildId`,`code`)
+  `code` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Level` (
+CREATE TABLE `Level` (
   `guildId` bigint(20) NOT NULL,
   `userId` bigint(20) NOT NULL,
-  `xp` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`guildId`,`userId`)
+  `xp` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `LogWebhooks` (
+CREATE TABLE `LogWebhooks` (
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `cid` bigint(20) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  PRIMARY KEY (`guildId`)
+  `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Money_Holder` (
+CREATE TABLE `Money_Holder` (
   `guildId` bigint(20) NOT NULL,
   `userId` bigint(20) NOT NULL,
   `cash` double DEFAULT NULL,
-  `bank` double DEFAULT NULL,
-  PRIMARY KEY (`guildId`,`userId`)
+  `bank` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Money_Transaction` (
-  `transactionId` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Money_Transaction` (
+  `transactionId` bigint(20) NOT NULL,
   `isSystemPayment` bit(1) NOT NULL,
   `guildId` bigint(20) DEFAULT NULL,
   `isReceiverBank` bit(1) NOT NULL,
   `isSenderBank` bit(1) NOT NULL,
   `amount` double DEFAULT NULL,
-  `creation` datetime(6) DEFAULT NULL,
+  `creation` datetime DEFAULT NULL,
   `receiver_guildId` bigint(20) NOT NULL,
   `receiver_userId` bigint(20) NOT NULL,
   `sender_guildId` bigint(20) NOT NULL,
-  `sender_userId` bigint(20) NOT NULL,
-  PRIMARY KEY (`transactionId`),
-  KEY `FK_MONEY_TRANSACTION_RECEIVER` (`receiver_guildId`,`receiver_userId`),
-  KEY `FK_MONEY_TRANSACTION_SENDER` (`sender_guildId`,`sender_userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-CREATE TABLE IF NOT EXISTS `Opt_out` (
-  `guildId` bigint(20) NOT NULL,
-  `userId` bigint(20) NOT NULL,
-  PRIMARY KEY (`guildId`,`userId`)
+  `sender_userId` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Punishments` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Opt_out` (
+  `guildId` bigint(20) NOT NULL,
+  `userId` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `Punishments` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `warnings` int(11) NOT NULL,
   `action` int(11) NOT NULL,
   `roleId` bigint(20) NOT NULL,
   `timeoutTime` bigint(20) NOT NULL,
-  `reason` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`guildId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `reason` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `ReactionRole` (
+CREATE TABLE `ReactionRole` (
   `guildId` bigint(20) NOT NULL,
   `emoteId` bigint(20) DEFAULT NULL,
   `formattedEmote` varchar(255) DEFAULT NULL,
   `channelId` bigint(20) DEFAULT NULL,
   `roleId` bigint(20) NOT NULL,
-  `messageId` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`guildId`,`roleId`)
+  `messageId` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Recording` (
+CREATE TABLE `Recording` (
   `id` varchar(255) NOT NULL,
   `guildId` bigint(20) DEFAULT NULL,
   `channelId` bigint(20) DEFAULT NULL,
   `creator` bigint(20) DEFAULT NULL,
-  `recording` text DEFAULT NULL,
   `participants` mediumblob DEFAULT NULL,
   `created` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `recording` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `RedditNotify` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `RedditNotify` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `webhookId` bigint(20) NOT NULL,
   `token` varchar(255) NOT NULL,
   `subreddit` varchar(255) DEFAULT NULL,
-  `message` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`guildId`)
+  `message` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `RSSFeed` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `RSSFeed` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `webhookId` bigint(20) NOT NULL,
   `token` varchar(255) NOT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`guildId`)
+  `url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `ScheduledMessage` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ScheduledMessage` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `message` varchar(255) DEFAULT NULL,
   `delay` bigint(20) DEFAULT NULL,
   `shouldRepeat` bit(1) DEFAULT NULL,
   `webhook_id` bigint(20) NOT NULL,
-  `lastExecute` datetime(6) DEFAULT NULL,
-  `lastUpdated` datetime(6) DEFAULT NULL,
-  `created` datetime(6) DEFAULT NULL,
-  `webhook_guildId` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`,`guildId`),
-  KEY `FK_SCHEDULEDMESSAGE_ON_WEBHOOK` (`webhook_id`),
-  KEY `FK_SCHEDULED_MESSAGE_WEBHOOK` (`webhook_id`,`webhook_guildId`)
+  `lastExecute` datetime DEFAULT NULL,
+  `lastUpdated` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `webhook_guildId` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `ScheduledMessageWebhooks` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ScheduledMessageWebhooks` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `webhookId` bigint(20) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`,`guildId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `token` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Settings` (
+CREATE TABLE `Settings` (
   `guildId` bigint(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `displayname` varchar(255) DEFAULT NULL,
-  `value` text DEFAULT NULL,
-  PRIMARY KEY (`guildId`,`name`)
+  `value` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Statistics` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `Statistics` (
+  `id` int(11) NOT NULL,
   `day` int(11) DEFAULT NULL,
   `month` int(11) DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
-  `stats` mediumblob DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=461 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `stats` mediumblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `StreamActions` (
+CREATE TABLE `StreamActions` (
   `guildId` bigint(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   `auth_id` varchar(255) NOT NULL,
   `listener` int(11) DEFAULT NULL,
   `argument` varchar(255) DEFAULT NULL,
-  `actions` mediumblob DEFAULT NULL,
-  PRIMARY KEY (`guildId`,`name`),
-  KEY `FK_STREAMACTIONS_ON_AUTH` (`auth_id`)
+  `actions` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Suggestions` (
+CREATE TABLE `Suggestions` (
   `guildId` bigint(20) NOT NULL,
-  `channelId` bigint(20) NOT NULL,
-  PRIMARY KEY (`guildId`,`channelId`)
+  `channelId` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `TemporalVoicechannel` (
+CREATE TABLE `TemporalVoicechannel` (
   `guildId` bigint(20) NOT NULL,
-  `channelId` bigint(20) NOT NULL,
-  PRIMARY KEY (`guildId`,`channelId`)
+  `channelId` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Tickets` (
+CREATE TABLE `Tickets` (
   `guildId` bigint(20) NOT NULL,
   `channelId` bigint(20) DEFAULT NULL,
   `ticketCategory` bigint(20) DEFAULT NULL,
   `logChannelId` bigint(20) DEFAULT NULL,
   `logChannelWebhookId` bigint(20) DEFAULT NULL,
   `logChannelWebhookToken` varchar(255) DEFAULT NULL,
-  `ticketCount` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`guildId`)
+  `ticketCount` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `TikTokNotify` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `TikTokNotify` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `webhookId` bigint(20) NOT NULL,
   `token` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `message` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`guildId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `message` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `TwitchIntegration` (
+CREATE TABLE `TwitchIntegration` (
   `channel_id` varchar(255) NOT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `token` varchar(255) DEFAULT NULL,
   `refresh` varchar(255) DEFAULT NULL,
   `channel_name` varchar(255) DEFAULT NULL,
   `expires` int(11) DEFAULT NULL,
-  `lastUpdated` datetime(6) DEFAULT NULL,
-  PRIMARY KEY (`channel_id`)
+  `lastUpdated` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `TwitchNotify` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `TwitchNotify` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `webhookId` bigint(20) NOT NULL,
   `token` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `message` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`guildId`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `message` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `TwitterNotify` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `TwitterNotify` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `webhookId` bigint(20) NOT NULL,
   `token` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `message` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`guildId`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `message` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `VCLevel` (
+CREATE TABLE `VCLevel` (
   `guildId` bigint(20) NOT NULL,
   `userId` bigint(20) NOT NULL,
-  `xp` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`guildId`,`userId`)
+  `xp` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `VCLevelAutoRoles` (
+CREATE TABLE `VCLevelAutoRoles` (
   `guildId` bigint(20) NOT NULL,
   `roleId` bigint(20) NOT NULL,
-  `lvl` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`guildId`,`roleId`)
+  `lvl` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `Warning` (
+CREATE TABLE `Warning` (
   `userId` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
-  `warnings` int(11) NOT NULL,
-  PRIMARY KEY (`guildId`,`userId`)
+  `warnings` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `WelcomeWebhooks` (
+CREATE TABLE `WelcomeWebhooks` (
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `cid` bigint(20) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  PRIMARY KEY (`guildId`)
+  `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE IF NOT EXISTS `YouTubeNotify` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `YouTubeNotify` (
+  `id` bigint(20) NOT NULL,
   `guildId` bigint(20) NOT NULL,
   `channel` bigint(20) NOT NULL,
   `webhookId` bigint(20) NOT NULL,
   `token` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `message` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`guildId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `message` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+ALTER TABLE `AutoRoles`
+  ADD PRIMARY KEY (`guildId`,`roleId`);
+
+ALTER TABLE `BirthdayWish`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `ChannelStats`
+  ADD PRIMARY KEY (`guildId`);
+
+ALTER TABLE `ChatLevelAutoRoles`
+  ADD PRIMARY KEY (`guildId`,`roleId`);
+
+ALTER TABLE `ChatProtector`
+  ADD PRIMARY KEY (`guildId`,`name`);
+
+ALTER TABLE `CommandStats`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `CustomCommands`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `CustomEvents`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `flyway_schema_history`
+  ADD PRIMARY KEY (`installed_rank`),
+  ADD KEY `flyway_schema_history_s_idx` (`success`);
+
+ALTER TABLE `Giveaway`
+  ADD PRIMARY KEY (`messageId`);
+
+ALTER TABLE `GuildStats`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `InstagramNotify`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+ALTER TABLE `Invites`
+  ADD PRIMARY KEY (`guildId`,`code`);
+
+ALTER TABLE `Level`
+  ADD PRIMARY KEY (`guildId`,`userId`);
+
+ALTER TABLE `LogWebhooks`
+  ADD PRIMARY KEY (`guildId`);
+
+ALTER TABLE `Money_Holder`
+  ADD PRIMARY KEY (`guildId`,`userId`);
+
+ALTER TABLE `Money_Transaction`
+  ADD PRIMARY KEY (`transactionId`),
+  ADD KEY `FK_MONEY_TRANSACTION_RECEIVER` (`receiver_guildId`,`receiver_userId`),
+  ADD KEY `FK_MONEY_TRANSACTION_SENDER` (`sender_guildId`,`sender_userId`);
+
+ALTER TABLE `Opt_out`
+  ADD PRIMARY KEY (`guildId`,`userId`);
+
+ALTER TABLE `Punishments`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+ALTER TABLE `ReactionRole`
+  ADD PRIMARY KEY (`guildId`,`roleId`);
+
+ALTER TABLE `Recording`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `RedditNotify`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+ALTER TABLE `RSSFeed`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+ALTER TABLE `ScheduledMessage`
+  ADD PRIMARY KEY (`id`,`guildId`),
+  ADD KEY `FK_SCHEDULED_MESSAGE_WEBHOOK` (`webhook_id`,`webhook_guildId`);
+
+ALTER TABLE `ScheduledMessageWebhooks`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+ALTER TABLE `Settings`
+  ADD PRIMARY KEY (`guildId`,`name`);
+
+ALTER TABLE `Statistics`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `StreamActions`
+  ADD PRIMARY KEY (`guildId`,`name`),
+  ADD KEY `FK_STREAMACTIONS_ON_AUTH` (`auth_id`);
+
+ALTER TABLE `Suggestions`
+  ADD PRIMARY KEY (`guildId`,`channelId`);
+
+ALTER TABLE `TemporalVoicechannel`
+  ADD PRIMARY KEY (`guildId`,`channelId`);
+
+ALTER TABLE `Tickets`
+  ADD PRIMARY KEY (`guildId`);
+
+ALTER TABLE `TikTokNotify`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+ALTER TABLE `TwitchIntegration`
+  ADD PRIMARY KEY (`channel_id`);
+
+ALTER TABLE `TwitchNotify`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+ALTER TABLE `TwitterNotify`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+ALTER TABLE `VCLevel`
+  ADD PRIMARY KEY (`guildId`,`userId`);
+
+ALTER TABLE `VCLevelAutoRoles`
+  ADD PRIMARY KEY (`guildId`,`roleId`);
+
+ALTER TABLE `Warning`
+  ADD PRIMARY KEY (`guildId`,`userId`);
+
+ALTER TABLE `WelcomeWebhooks`
+  ADD PRIMARY KEY (`guildId`);
+
+ALTER TABLE `YouTubeNotify`
+  ADD PRIMARY KEY (`id`,`guildId`);
+
+
+ALTER TABLE `BirthdayWish`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `CommandStats`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `CustomCommands`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `CustomEvents`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `GuildStats`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `InstagramNotify`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `Money_Transaction`
+  MODIFY `transactionId` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `Punishments`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `RedditNotify`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `RSSFeed`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `ScheduledMessage`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `ScheduledMessageWebhooks`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `Statistics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `TikTokNotify`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `TwitchNotify`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `TwitterNotify`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `YouTubeNotify`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 
 ALTER TABLE `Money_Transaction`
