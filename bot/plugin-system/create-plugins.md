@@ -23,7 +23,7 @@
 ```
 {% endtab %}
 
-{% tab title="undefined" %}
+{% tab title="Gradle" %}
 <pre class="language-gradle"><code class="lang-gradle">dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 <strong>    repositories {
