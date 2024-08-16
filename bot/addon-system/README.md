@@ -1,10 +1,14 @@
 ---
-description: Informations about the Addon System of Ree6!
+description: Informations about the old Addon System of Ree6!
 ---
 
 # Addon System
 
-## Whats that?
+{% hint style="info" %}
+This system will be replaced with the new [plugin-system](../plugin-system/ "mention") in v4
+{% endhint %}
 
-Its a API that allows users to create Addons for Ree6 without directly modifying the original Source!
+## What's that?
+
+It's an API that allows users to create Addons for Ree6 without directly modifying the source!
 

@@ -18,6 +18,9 @@
 
 * [Self hosting](bot/self-hosting/README.md)
   * [Self host with Pterodactyl](bot/self-hosting/self-host-with-pterodactyl.md)
+* [Plugin System](bot/plugin-system/README.md)
+  * [Installing Plugins](bot/plugin-system/installing-plugins.md)
+  * [Create Plugins](bot/plugin-system/create-plugins.md)
 * [Addon System](bot/addon-system/README.md)
   * [Make your first Addon](bot/addon-system/make-your-first-addon.md)
 * [StreamTools](bot/streamtools.md)
