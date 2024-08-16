@@ -163,7 +163,7 @@ The new plugin system will automatically detect that the plugin has a few classe
 ## The missing plugin.yml
 
 To let Ree6 know where to look you will need to create a `plugin.yml`!\
-In this, you will need to add the name of the plugin, the author's name, the path to the main class, the version of the addon, and the version of Ree6 it has been made for!\
+In this, you will need to add the name of the plugin, the author's name, the path to the main class, the version of the plugin, and the version of Ree6 it has been made for!\
 For example, a correct `plugin.yml` would look like this:
 
 <pre class="language-yaml"><code class="lang-yaml">id: Pong Command
@@ -178,7 +178,7 @@ dependencies: []
 
 ## Finishing up!
 
-You should be ready to go with your Addon!\
+You should be ready to go with your plugin!\
 Now you will need to export it either via Maven, Gradle, or any desired way you have!
 
 On how to load the plugins refer to [installing-plugins.md](installing-plugins.md "mention")
