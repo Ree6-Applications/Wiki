@@ -39,6 +39,6 @@ For the Bot you can use this guide:
 
 For the Webinterface you can use this guide below:
 
-{% content-ref url="webinterface/self-hosting.md" %}
-[self-hosting.md](webinterface/self-hosting.md)
+{% content-ref url="webinterface/self-hosting/" %}
+[self-hosting](webinterface/self-hosting/)
 {% endcontent-ref %}

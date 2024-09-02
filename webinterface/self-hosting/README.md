@@ -4,14 +4,10 @@ description: A Guide about how to self host Ree6's Webinterface!
 
 # Self hosting
 
-## Notice
-
-There will be significant rewrites for this part of the Wiki containing more information for everything related to hosting the Interface with Docker/Pterodactyl.
-
 ## Requirements
 
 * Java 17
-* NodeJS 18
+* NodeJS 18 or 20
 
 ## Recommendation
 

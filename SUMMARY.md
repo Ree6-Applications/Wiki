@@ -18,6 +18,7 @@
 
 * [Self hosting](bot/self-hosting/README.md)
   * [Self host with Pterodactyl](bot/self-hosting/self-host-with-pterodactyl.md)
+  * [Self host with Docker](bot/self-hosting/self-host-with-docker.md)
 * [Plugin System](bot/plugin-system/README.md)
   * [Installing Plugins](bot/plugin-system/installing-plugins.md)
   * [Create Plugins](bot/plugin-system/create-plugins.md)
@@ -30,7 +31,10 @@
 
 ## 🌐 Webinterface
 
-* [Self hosting](webinterface/self-hosting.md)
+* [What is the Webinterface?](webinterface/what-is-the-webinterface.md)
+* [Self hosting](webinterface/self-hosting/README.md)
+  * [Self host with Pterodactyl](webinterface/self-hosting/self-host-with-pterodactyl.md)
+  * [Self host with Docker](webinterface/self-hosting/self-host-with-docker.md)
 
 ## ⁉️ Troubleshooting
 
