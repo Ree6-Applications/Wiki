@@ -6,13 +6,9 @@ description: >-
 
 # Plugin System
 
-{% hint style="info" %}
-This system has not been released yet and will be released with v4
-{% endhint %}
-
 ## What is this system?
 
-This system allows you to develop your own expansions which we call "plugins" and distribute them to your liking, while still following the license. With this, you have general compatibility with different forks of Ree6, since you don't need to change the forks code to work with the plugin system.
+This system allows you to develop your own expansions which we call "plugins", and distribute them to your liking, while still following the license. With this, you have general compatibility with different forks of Ree6, since you don't need to change the forks code to work with the plugin system.
 
 ## What is the difference between the Addon and Plugin System?
 
