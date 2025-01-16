@@ -9,13 +9,13 @@ description: A Guide about how to self host Ree6 with Docker!
 ```yaml
 services:
   ree6:
-    image: ree6/bot:4.0.2
+    image: ree6/bot:latest
     environment:
-      config: /opt/ree6/config.yml
+      config: /opt/ree6/config/config.yml
     volumes:
       - /PATH/bot/storage:/storage
       - /PATH/bot/languages:/languages
-      - /PATH/bot/:/opt/ree6/co
+      - /PATH/bot/config/:/opt/ree6/config/
     depends_on:
       - db
   db:

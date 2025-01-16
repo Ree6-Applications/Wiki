@@ -34,6 +34,11 @@
   * [Self host with Pterodactyl](webinterface/self-hosting/self-host-with-pterodactyl.md)
   * [Self host with Docker](webinterface/self-hosting/self-host-with-docker.md)
 
+***
+
+* [🌎 All-in-One](all-in-one/README.md)
+  * [🐋 Docker](all-in-one/docker.md)
+
 ## ⁉️ Troubleshooting
 
 * [Migration Failed!](troubleshooting/migration-failed.md)
