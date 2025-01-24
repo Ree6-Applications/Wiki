@@ -113,8 +113,8 @@ Let's make a command together called `PongCommand`:
 
 ```java
 @Extension
-@Command(name = "ping", description = "Answer with Pong!", category = Category.FUN)
-public class PongCommand extends ICommand {
+@Command(name = "pong", description = "Answer with Pong!", category = Category.FUN)
+public class PongCommand implements ICommand {
 
     @Override
     public void onPerform(CommandEvent commandEvent) {
@@ -186,7 +186,7 @@ description: Very cool pong command!
 version: 1.0.0
 <strong>requires: 4.0.0
 </strong>provider: Presti
-class: de.presti.cooladdon.MyAwesomeAddon
+class: de.presti.cooladdon.MyAwesomePlugin
 license: MIT
 dependencies: []
 </code></pre>
