@@ -156,7 +156,21 @@ public void onPerform(CommandEvent commandEvent) {
 
 Well now that we finished our great `PongCommand` we will need to register it!
 
-### How do we do that?
+### Automatic
+
+Commands have to be marked with `@Extension`  annotation to be automatically registered.
+
+### Manual
+
+You can easily call the `CommandManager.addCommand` method via the Ree6 Main class for the manual registration.
+
+Example:
+
+```java
+Main.getInstance().getCommandManager().addCommand(new PongCommand());
+```
+
+
 
 Unlike the old Addon system, we don't need to manually register it!\
 The new plugin system will automatically detect that the plugin has a few classes that implement the interface and register them!
