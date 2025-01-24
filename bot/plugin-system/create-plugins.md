@@ -34,6 +34,7 @@
 
 dependences {
     implementation 'de.ree6:Ree6:VERSION'
+    annotationProcessor(compileOnly("org.pf4j:pf4j:3.13.0"))
 }
 </code></pre>
 {% endtab %}
