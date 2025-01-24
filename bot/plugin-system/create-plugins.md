@@ -86,19 +86,19 @@ public class MyAwesomePlugin extends ReePlugin {
     @Override
     public void start() {
         super.start();
-        System.out.println("Start!");
+        context.getLogger().info("Start!");
     }
 
     @Override
     public void stop() {
         super.stop();
-        System.out.println("Stop!");
+        context.getLogger().info("Stop!");
     }
 
     @Override
     public void delete() {
         super.delete();
-        System.out.println("You want to delete me :C ?");
+        context.getLogger().info("You want to delete me :C ?");
     }
 }
 ```
@@ -112,6 +112,7 @@ For a command, we need to create a class that implements the `ICommand` class an
 Let's make a command together called `PongCommand`:
 
 ```java
+@Extension
 @Command(name = "ping", description = "Answer with Pong!", category = Category.FUN)
 public class PongCommand extends ICommand {
 
